@@ -174,6 +174,196 @@ main {
 }
 
 
+
+
+.detail-summary {
+  display:none;
+}
+
+body.detail-mode .list-recommendation {
+  display:none;
+}
+
+body.detail-mode .detail-summary {
+  display:block;
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:#fff;
+  border-bottom:
+    1px solid var(--border);
+  padding:12px 15px;
+}
+
+.detail-picks {
+  display:grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap:8px;
+}
+
+.detail-pick {
+  min-width:0;
+  padding:10px 11px;
+  border:
+    1px solid var(--border);
+  border-radius:11px;
+  background:#fafbfb;
+}
+
+.detail-pick:first-child {
+  background:var(--green-soft);
+  border-color:#b9e3d4;
+}
+
+.detail-pick-label {
+  display:flex;
+  gap:5px;
+  align-items:center;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:700;
+}
+
+.detail-pick-mark {
+  color:#9a6b0d;
+  font-size:18px;
+  font-weight:900;
+}
+
+.detail-pick-horse {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  min-width:0;
+  margin-top:4px;
+}
+
+.detail-pick-horse strong {
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.detail-pick-no {
+  flex:0 0 auto;
+  display:inline-flex;
+  width:27px;
+  height:27px;
+  align-items:center;
+  justify-content:center;
+  border-radius:6px;
+  background:#e9edef;
+  font-weight:800;
+}
+
+.detail-pick-prob {
+  display:flex;
+  justify-content:
+    space-between;
+  align-items:flex-end;
+  margin-top:6px;
+}
+
+.detail-pick-prob span {
+  color:var(--muted);
+  font-size:10px;
+}
+
+.detail-pick-prob b {
+  font-size:18px;
+  font-variant-numeric:
+    tabular-nums;
+}
+
+.detail-summary-bet .recommend {
+  margin:9px 0 0;
+}
+
+.table-toolbar {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-bottom:10px;
+}
+
+.table-toolbar > span {
+  color:var(--muted);
+  margin-right:3px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.sort-button {
+  min-height:38px;
+  padding:7px 12px;
+  border:
+    1px solid var(--border);
+  border-radius:999px;
+  background:#fff;
+  color:var(--text);
+  font-weight:700;
+  cursor:pointer;
+}
+
+.sort-button.active {
+  background:var(--green);
+  color:#fff;
+  border-color:var(--green);
+}
+
+@media(max-width:600px) {
+
+  body.detail-mode .detail-summary {
+    padding:9px 8px;
+  }
+
+  .detail-picks {
+    gap:5px;
+  }
+
+  .detail-pick {
+    padding:8px 6px;
+  }
+
+  .detail-pick-label {
+    font-size:10px;
+  }
+
+  .detail-pick-mark {
+    font-size:16px;
+  }
+
+  .detail-pick-horse {
+    display:block;
+  }
+
+  .detail-pick-no {
+    width:23px;
+    height:23px;
+    margin-bottom:3px;
+    font-size:11px;
+  }
+
+  .detail-pick-horse strong {
+    display:block;
+    font-size:11px;
+  }
+
+  .detail-pick-prob {
+    display:block;
+  }
+
+  .detail-pick-prob b {
+    display:block;
+    margin-top:2px;
+    font-size:15px;
+  }
+
+}
+
 .race-name-link {
   color:var(--text);
   text-decoration:none;
@@ -672,7 +862,7 @@ body.detail-mode .detail-section h3 {
     </div>
 
     <div class="updated">
-      最終更新 2026-10-03 02:43
+      最終更新 2026-10-03 02:48
     </div>
   </div>
 
@@ -753,12 +943,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  13
+                </span>
+
+                <strong>
+                  ジョルティーニ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  30.5%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  5
+                </span>
+
+                <strong>
+                  ペアスターロード
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  14.3%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  15
+                </span>
+
+                <strong>
+                  ゴールデンレシオ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  11.6%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -900,8 +1189,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -916,7 +1229,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.3045100266457842"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -959,7 +1275,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.14337255620126393"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -1002,7 +1321,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.11621115073444785"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -1045,7 +1367,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.10518762881476419"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -1088,7 +1413,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06352775344311339"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -1131,7 +1459,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06117351353125447"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -1174,7 +1505,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0544922742372227"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -1217,7 +1551,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03590582844472191"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -1260,7 +1597,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.021589064547890863"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -1303,7 +1643,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.02082786301068609"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -1346,7 +1689,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.020503229282076627"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -1389,7 +1735,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.01717260174877853"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -1432,7 +1781,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.01446567439478544"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -1475,7 +1827,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.01177808509577507"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -1518,7 +1873,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.009282749867434525"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -1562,7 +1920,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -1609,12 +1968,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  13
+                </span>
+
+                <strong>
+                  スターフラッシュ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  25.7%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  15
+                </span>
+
+                <strong>
+                  ヒゲキリ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  22.6%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  10
+                </span>
+
+                <strong>
+                  アオイノリプー
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  13.1%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -1756,8 +2214,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -1772,7 +2254,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.2566182548909026"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -1815,7 +2300,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.2255713192596615"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -1858,7 +2346,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.13102648368163003"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -1901,7 +2392,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.09638357798081455"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -1944,7 +2438,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.07463835064324886"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -1987,7 +2484,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.057578922584993406"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -2030,7 +2530,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.02822657913850508"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -2073,7 +2576,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.027489422072058088"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -2116,7 +2622,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.024654604728338147"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -2159,7 +2668,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0198917737948461"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -2202,7 +2714,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.013434180145088011"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -2245,7 +2760,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.013031885065437206"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -2288,7 +2806,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.011632496340395464"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -2331,7 +2852,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.011428103045878992"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -2374,7 +2898,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.008394046628201982"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -2418,7 +2945,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -2465,12 +2993,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  10
+                </span>
+
+                <strong>
+                  ウィクフォード
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  24.8%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  8
+                </span>
+
+                <strong>
+                  ルーメンルーナエ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  23.9%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  1
+                </span>
+
+                <strong>
+                  イッペイ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  23.5%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -2612,8 +3239,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -2628,7 +3279,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.24831925037567096"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -2671,7 +3325,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.23861650558702988"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -2714,7 +3371,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.23514549297411108"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -2757,7 +3417,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.10627250998120928"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -2800,7 +3463,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06968897008211637"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -2843,7 +3509,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.031023626205048144"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -2886,7 +3555,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.024134417052746545"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -2929,7 +3601,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.021525070712857804"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -2972,7 +3647,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.013566475503319977"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -3015,7 +3693,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.011707681525890096"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -3059,7 +3740,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -3106,12 +3788,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  6
+                </span>
+
+                <strong>
+                  ロゼプレミア
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  27.9%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  8
+                </span>
+
+                <strong>
+                  シアルナーレ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  21.1%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  3
+                </span>
+
+                <strong>
+                  ゼノスフィア
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  12.7%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -3253,8 +4034,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -3269,7 +4074,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.2794602591632712"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -3312,7 +4120,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.21074305153647455"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -3355,7 +4166,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.12713554392229978"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -3398,7 +4212,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0974403501847636"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -3441,7 +4258,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.08998746798892193"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -3484,7 +4304,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.05567730447219539"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -3527,7 +4350,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04301450936336756"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -3570,7 +4396,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03914879055678984"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -3613,7 +4442,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03178299248410684"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -3656,7 +4488,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.021085500987540817"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -3699,7 +4534,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.00452422934026865"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -3743,7 +4581,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -3790,12 +4629,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  1
+                </span>
+
+                <strong>
+                  スターフュージョン
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  26.0%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  2
+                </span>
+
+                <strong>
+                  ワイズギャング
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  14.7%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  11
+                </span>
+
+                <strong>
+                  ヒルノプーリア
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  13.4%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -3937,8 +4875,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -3953,7 +4915,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.2600744248985405"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -3996,7 +4961,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.14709717486141832"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -4039,7 +5007,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.13390690924309676"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -4082,7 +5053,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.09280340287885572"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -4125,7 +5099,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.08173108225638304"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -4168,7 +5145,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06980235409698507"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -4211,7 +5191,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.045254767727501755"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -4254,7 +5237,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03488257204370081"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -4297,7 +5283,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.028106321154155817"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -4340,7 +5329,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.022559027609088282"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -4383,7 +5375,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.021112950354867058"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -4426,7 +5421,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.020440506535295076"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -4469,7 +5467,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.01934634526996985"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -4512,7 +5513,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.009756272072488964"
+              data-horse-no="16"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -4555,7 +5559,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.007750894622325345"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -4598,7 +5605,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.005374994375327632"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 16
               </td>
@@ -4642,7 +5652,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -4689,12 +5700,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  10
+                </span>
+
+                <strong>
+                  イレブンローズ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  12.4%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  2
+                </span>
+
+                <strong>
+                  ソードオブステート
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  12.1%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  8
+                </span>
+
+                <strong>
+                  ポッドコーディア
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  8.9%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -4836,8 +5946,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -4852,7 +5986,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.12360233235342585"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -4895,7 +6032,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.12141247580820379"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -4938,7 +6078,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.08917891229466487"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -4981,7 +6124,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.08540897245746513"
+              data-horse-no="16"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -5024,7 +6170,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.07713304598752012"
+              data-horse-no="18"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -5067,7 +6216,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.07286850156487767"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -5110,7 +6262,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.07284186306852748"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -5153,7 +6308,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06687689591013474"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -5196,7 +6354,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.05451455204388517"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -5239,7 +6400,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04849989108460941"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -5282,7 +6446,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04530848266672026"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -5325,7 +6492,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.038081168446210754"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -5368,7 +6538,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.028678395157810274"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -5411,7 +6584,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.019899998705297715"
+              data-horse-no="17"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -5454,7 +6630,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.01913922904506124"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -5497,7 +6676,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.012549490395534758"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 16
               </td>
@@ -5540,7 +6722,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.012380671269925684"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 17
               </td>
@@ -5583,7 +6768,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.011625121740125206"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 18
               </td>
@@ -5627,7 +6815,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -5674,12 +6863,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  13
+                </span>
+
+                <strong>
+                  ベラジオアゲーラ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  13.8%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  14
+                </span>
+
+                <strong>
+                  ロイヤルガミーヌ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  12.4%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  6
+                </span>
+
+                <strong>
+                  ガジュノリプリンス
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  11.7%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -5821,8 +7109,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -5837,7 +7149,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.13767323770442702"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -5880,7 +7195,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.12395570761010931"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -5923,7 +7241,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.11707659902387885"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -5966,7 +7287,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.10670337525385674"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -6009,7 +7333,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.09745781047680055"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -6052,7 +7379,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.08463105138692792"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -6095,7 +7425,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06734929953173258"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -6138,7 +7471,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.058003815800373296"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -6181,7 +7517,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.056390763701444656"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -6224,7 +7563,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.044877669879519654"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -6267,7 +7609,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.044587203610197974"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -6310,7 +7655,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.022570473668417367"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -6353,7 +7701,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.02162262360774516"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -6396,7 +7747,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.017100368744569147"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -6440,7 +7794,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -6487,12 +7842,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  4
+                </span>
+
+                <strong>
+                  パンプルネル
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  18.8%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  11
+                </span>
+
+                <strong>
+                  レッドシーカー
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  17.7%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  2
+                </span>
+
+                <strong>
+                  トロフィーズ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  8.1%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -6634,8 +8088,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -6650,7 +8128,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.1877419455698549"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -6693,7 +8174,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.17698181533258678"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -6736,7 +8220,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0807186640208753"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -6779,7 +8266,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.07720302457103018"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -6822,7 +8312,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.07343622301390984"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -6865,7 +8358,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.05615424229859003"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -6908,7 +8404,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04927099302587077"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -6951,7 +8450,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04484194399152527"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -6994,7 +8496,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04386781615150528"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -7037,7 +8542,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04332298898845725"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -7080,7 +8588,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0420011683794881"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -7123,7 +8634,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04083264707403888"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -7166,7 +8680,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.02702895898821691"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -7209,7 +8726,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.026961148670653842"
+              data-horse-no="16"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -7252,7 +8772,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0172424933663307"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -7295,7 +8818,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.012393926557065853"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 16
               </td>
@@ -7339,7 +8865,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -7386,12 +8913,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  2
+                </span>
+
+                <strong>
+                  ロードディグニティ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  20.5%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  8
+                </span>
+
+                <strong>
+                  ヒシホライゾン
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  14.3%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  3
+                </span>
+
+                <strong>
+                  ヴァルカモニカ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  13.7%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -7533,8 +9159,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -7549,7 +9199,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.20472494696877472"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -7592,7 +9245,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.14327799802029145"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -7635,7 +9291,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.1373572104824791"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -7678,7 +9337,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.11597459540080132"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -7721,7 +9383,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.11513723356974272"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -7764,7 +9429,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.10727082545307913"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -7807,7 +9475,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0683029599733704"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -7850,7 +9521,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03479531585673154"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -7893,7 +9567,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.033419632467819746"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -7936,7 +9613,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.02293148291615566"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -7979,7 +9659,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.016807798890754174"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -8023,7 +9706,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -8070,12 +9754,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  1
+                </span>
+
+                <strong>
+                  ノンブルドール
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  17.2%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  4
+                </span>
+
+                <strong>
+                  ガウディ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  13.4%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  13
+                </span>
+
+                <strong>
+                  カットソロ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  13.2%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -8217,8 +10000,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -8233,7 +10040,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.1719180009209293"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -8276,7 +10086,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.1339250343189301"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -8319,7 +10132,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.132160042965357"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -8362,7 +10178,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.1118470580520436"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -8405,7 +10224,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.09623903053369895"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -8448,7 +10270,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06842494291667568"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -8491,7 +10316,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06101242422912097"
+              data-horse-no="16"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -8534,7 +10362,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.05552468490778122"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -8577,7 +10408,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.037002017287185295"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -8620,7 +10454,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.034983253597304545"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -8663,7 +10500,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.023778421935376277"
+              data-horse-no="17"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -8706,7 +10546,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.02220011545581577"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -8749,7 +10592,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.016063945787742527"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -8792,7 +10638,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.014389159807581153"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -8835,7 +10684,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.011359413365371124"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -8878,7 +10730,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.007041232716320947"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 16
               </td>
@@ -8921,7 +10776,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0021312212027653297"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 17
               </td>
@@ -8965,7 +10823,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -9012,12 +10871,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  1
+                </span>
+
+                <strong>
+                  ミヤエスケープ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  13.5%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  7
+                </span>
+
+                <strong>
+                  チームユートピア
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  12.9%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  8
+                </span>
+
+                <strong>
+                  クラリネットソナタ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  11.3%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -9159,8 +11117,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -9175,7 +11157,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.13473892608216165"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -9218,7 +11203,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.1285877912512578"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -9261,7 +11249,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.11313179965334398"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -9304,7 +11295,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.09864481259242382"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -9347,7 +11341,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.09650341920529006"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -9390,7 +11387,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.08820017090131951"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -9433,7 +11433,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06553362272360673"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -9476,7 +11479,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.05697749899882368"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -9519,7 +11525,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.050360271688565175"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -9562,7 +11571,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04680809032493603"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -9605,7 +11617,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04614969123498993"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -9648,7 +11663,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.026436234400985702"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -9691,7 +11709,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.01971795007037471"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -9734,7 +11755,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.013119726826288413"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -9777,7 +11801,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.009944321351348295"
+              data-horse-no="16"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -9820,7 +11847,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.005145672694284591"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 16
               </td>
@@ -9864,7 +11894,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -9911,12 +11942,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  14
+                </span>
+
+                <strong>
+                  ペプチドレオン
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  24.5%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  15
+                </span>
+
+                <strong>
+                  ゴディアンフィンチ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  14.7%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  7
+                </span>
+
+                <strong>
+                  ブロンテス
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  14.4%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -10058,8 +12188,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -10074,7 +12228,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.24507364165199158"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -10117,7 +12274,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.14704107605656405"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -10160,7 +12320,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.1435401642582904"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -10203,7 +12366,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.10182013812801723"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -10246,7 +12412,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06975670848550179"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -10289,7 +12458,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06281586496189703"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -10332,7 +12504,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.05117266191182545"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -10375,7 +12550,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03940994108631423"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -10418,7 +12596,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03708651661566289"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -10461,7 +12642,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.025214259505091895"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -10504,7 +12688,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.021871023659276102"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -10547,7 +12734,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.021147026145412598"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -10590,7 +12780,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.013799275545443919"
+              data-horse-no="16"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -10633,7 +12826,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.008426132604682194"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -10676,7 +12872,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.00613605382155703"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -10719,7 +12918,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.005689515562471594"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 16
               </td>
@@ -10763,7 +12965,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -10810,12 +13013,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  14
+                </span>
+
+                <strong>
+                  ワディアルリヤハ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  19.1%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  2
+                </span>
+
+                <strong>
+                  グリオンヴール
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  18.6%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  7
+                </span>
+
+                <strong>
+                  アイアンパイク
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  17.5%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -10957,8 +13259,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -10973,7 +13299,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.190638262282881"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -11016,7 +13345,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.18641531284671337"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -11059,7 +13391,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.17458115510908817"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -11102,7 +13437,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.061444350930155114"
+              data-horse-no="16"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -11145,7 +13483,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.05941301441480248"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -11188,7 +13529,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.05730568722864768"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -11231,7 +13575,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.05100898124887345"
+              data-horse-no="18"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -11274,7 +13621,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0452952688715317"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -11317,7 +13667,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03360336301198237"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -11360,7 +13713,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03276922775431727"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -11403,7 +13759,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.026502715546835136"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -11446,7 +13805,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.014260986481761762"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -11489,7 +13851,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.01403278614169877"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -11532,7 +13897,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.013907894609217862"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -11575,7 +13943,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.012514035357125933"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -11618,7 +13989,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.01225957264385768"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 16
               </td>
@@ -11661,7 +14035,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.008578344885462014"
+              data-horse-no="17"
+            >
               <td class="rank-cell">
                 17
               </td>
@@ -11704,7 +14081,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0054690406350484146"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 18
               </td>
@@ -11748,7 +14128,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -11795,12 +14176,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  7
+                </span>
+
+                <strong>
+                  イベントホライゾン
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  27.3%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  9
+                </span>
+
+                <strong>
+                  アクロフェイズ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  20.5%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  4
+                </span>
+
+                <strong>
+                  サトノアイボリー
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  20.3%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -11942,8 +14422,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -11958,7 +14462,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.2733011403488117"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -12001,7 +14508,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.2050416626217197"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -12044,7 +14554,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.20265150609315957"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -12087,7 +14600,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.1809894775642938"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -12130,7 +14646,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.07549342185199699"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -12173,7 +14692,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.02017831441533557"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -12216,7 +14738,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.015294562956850678"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -12259,7 +14784,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.014540826438267951"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -12302,7 +14830,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.006611971554135628"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -12345,7 +14876,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.003164632863636468"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -12388,7 +14922,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.002732483291791852"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -12432,7 +14969,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -12479,12 +15017,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  2
+                </span>
+
+                <strong>
+                  プレースメント
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  17.9%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  3
+                </span>
+
+                <strong>
+                  マサッチェハマー
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  16.9%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  10
+                </span>
+
+                <strong>
+                  ジーティーブラック
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  10.5%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -12626,8 +15263,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -12642,7 +15303,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.1787048124277105"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -12685,7 +15349,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.16853709437483844"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -12728,7 +15395,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.10482324683180942"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -12771,7 +15441,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0997181057597764"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -12814,7 +15487,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0837840127466141"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -12857,7 +15533,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.07045473717892192"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -12900,7 +15579,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0661180714667353"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -12943,7 +15625,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04113093145948223"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -12986,7 +15671,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.041071918328563974"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -13029,7 +15717,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.037953831051649"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -13072,7 +15763,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03181119344628139"
+              data-horse-no="16"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -13115,7 +15809,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.030614004417964816"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -13158,7 +15855,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.022971762879773868"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -13201,7 +15901,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.012640191031612616"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -13244,7 +15947,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0068591208489444215"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -13287,7 +15993,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0028069657493217798"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 16
               </td>
@@ -13331,7 +16040,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -13378,12 +16088,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  6
+                </span>
+
+                <strong>
+                  ヴィヴェローネ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  30.1%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  3
+                </span>
+
+                <strong>
+                  ギャルズマインド
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  19.1%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  1
+                </span>
+
+                <strong>
+                  ベニバナ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  12.6%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -13525,8 +16334,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -13541,7 +16374,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.301455685543878"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -13584,7 +16420,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.19142659093840259"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -13627,7 +16466,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.1264492231124645"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -13670,7 +16512,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.12394611195871118"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -13713,7 +16558,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.09375982279472675"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -13756,7 +16604,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06490328546652013"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -13799,7 +16650,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.051903199489271516"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -13842,7 +16696,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0461560806960253"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -13886,7 +16743,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -13933,12 +16791,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  4
+                </span>
+
+                <strong>
+                  フィールドノート
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  21.9%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  8
+                </span>
+
+                <strong>
+                  ドッグウッド
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  17.3%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  7
+                </span>
+
+                <strong>
+                  ミッキージャンプ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  16.1%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -14080,8 +17037,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -14096,7 +17077,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.21913694160582783"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -14139,7 +17123,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.17335285575676893"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -14182,7 +17169,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.16097508011956843"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -14225,7 +17215,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.1284262584337696"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -14268,7 +17261,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.08867491026182563"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -14311,7 +17307,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.08129378277273931"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -14354,7 +17353,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.049873841669049644"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -14397,7 +17399,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.033839747870146014"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -14440,7 +17445,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.02647000752524503"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -14483,7 +17491,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.02543213723890939"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -14526,7 +17537,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.008974511886848072"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -14569,7 +17583,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.00354992485930209"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -14613,7 +17630,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -14660,12 +17678,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  14
+                </span>
+
+                <strong>
+                  ルクスデイジー
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  21.6%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  6
+                </span>
+
+                <strong>
+                  ウルスクローム
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  17.8%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  11
+                </span>
+
+                <strong>
+                  テーオーグレーザー
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  15.8%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -14807,8 +17924,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -14823,7 +17964,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.2158429109691442"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -14866,7 +18010,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.17844798719157434"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -14909,7 +18056,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.15784624967264071"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -14952,7 +18102,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06447710194856317"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -14995,7 +18148,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.058740081544666"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -15038,7 +18194,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.05721240560436227"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -15081,7 +18240,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.056795652591008376"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -15124,7 +18286,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04041239563495475"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -15167,7 +18332,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03160075798566788"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -15210,7 +18378,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.031296245146079246"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -15253,7 +18424,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.02760444556859077"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -15296,7 +18470,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.024768297863923747"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -15339,7 +18516,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.019676551526331406"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -15382,7 +18562,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.015532327818337095"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -15425,7 +18608,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.010427565967175485"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -15468,7 +18654,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.009319022966980317"
+              data-horse-no="16"
+            >
               <td class="rank-cell">
                 16
               </td>
@@ -15512,7 +18701,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -15559,12 +18749,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  5
+                </span>
+
+                <strong>
+                  レッドキングリー
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  22.2%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  17
+                </span>
+
+                <strong>
+                  シャイフ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  13.5%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  7
+                </span>
+
+                <strong>
+                  チャンネルトンネル
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  9.7%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -15706,8 +18995,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -15722,7 +19035,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.22235076110334925"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -15765,7 +19081,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.13452927934101055"
+              data-horse-no="17"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -15808,7 +19127,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.09737554551020818"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -15851,7 +19173,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.08191802751529852"
+              data-horse-no="18"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -15894,7 +19219,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.07978816672998891"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -15937,7 +19265,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.07372319168372578"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -15980,7 +19311,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0695631610403215"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -16023,7 +19357,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.05988055724040888"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -16066,7 +19403,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03847475899534372"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -16109,7 +19449,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.032220885693844105"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -16152,7 +19495,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.020291469351185462"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -16195,7 +19541,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.020065585895751"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -16238,7 +19587,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.017025301061292214"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -16281,7 +19633,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.01589078082407824"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -16324,7 +19679,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.014719671442440517"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -16367,7 +19725,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0096896458747765"
+              data-horse-no="16"
+            >
               <td class="rank-cell">
                 16
               </td>
@@ -16410,7 +19771,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0075243809377574435"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 17
               </td>
@@ -16453,7 +19817,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.004968829759219243"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 18
               </td>
@@ -16497,7 +19864,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -16544,12 +19912,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  10
+                </span>
+
+                <strong>
+                  ヒシアイラ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  23.3%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  18
+                </span>
+
+                <strong>
+                  ディアナザール
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  17.2%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  6
+                </span>
+
+                <strong>
+                  リリージョワ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  10.3%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -16691,8 +20158,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -16707,7 +20198,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.23281658757734203"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -16750,7 +20244,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.17169244042426365"
+              data-horse-no="18"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -16793,7 +20290,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.10300403494627679"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -16836,7 +20336,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.10169705849992926"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -16879,7 +20382,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06330704694526519"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -16922,7 +20428,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06112357229522889"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -16965,7 +20474,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.043876130886782265"
+              data-horse-no="17"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -17008,7 +20520,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03962890427330973"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -17051,7 +20566,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03520188061816632"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -17094,7 +20612,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.032124614208548986"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -17137,7 +20658,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.029893237561725784"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -17180,7 +20704,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.024585868545669222"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -17223,7 +20750,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.012922579877120427"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -17266,7 +20796,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.011185914642264299"
+              data-horse-no="16"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -17309,7 +20842,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.011139355632236864"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -17352,7 +20888,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.011116194954415235"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 16
               </td>
@@ -17395,7 +20934,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.010557755560364939"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 17
               </td>
@@ -17438,7 +20980,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.004126822551089853"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 18
               </td>
@@ -17482,7 +21027,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -17529,12 +21075,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  1
+                </span>
+
+                <strong>
+                  ルヴァレドクール
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  19.0%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  4
+                </span>
+
+                <strong>
+                  ヘニーガイスト
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  17.8%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  5
+                </span>
+
+                <strong>
+                  ドンエレクトス
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  16.3%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -17676,8 +21321,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -17692,7 +21361,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.18965414791129323"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -17735,7 +21407,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.17781320606047105"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -17778,7 +21453,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.1627675213137289"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -17821,7 +21499,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.12898649369844598"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -17864,7 +21545,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.05439600917405948"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -17907,7 +21591,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.053377547218206735"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -17950,7 +21637,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04269543866117045"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -17993,7 +21683,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03904971804412592"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -18036,7 +21729,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.031081625129287707"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -18079,7 +21775,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.030592120099429524"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -18122,7 +21821,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.02449290314333644"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -18165,7 +21867,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.020277963581767738"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -18208,7 +21913,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.01869286427857516"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -18251,7 +21959,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.014426485169862209"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -18294,7 +22005,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.011695956516239586"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -18338,7 +22052,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -18385,12 +22100,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  14
+                </span>
+
+                <strong>
+                  システマソラー
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  30.0%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  13
+                </span>
+
+                <strong>
+                  メイショウコシュウ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  20.5%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  9
+                </span>
+
+                <strong>
+                  オオツカ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  15.1%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -18532,8 +22346,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -18548,7 +22386,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.2996506205313864"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -18591,7 +22432,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.20455161168010616"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -18634,7 +22478,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.15060877889564012"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -18677,7 +22524,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.08407842683561052"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -18720,7 +22570,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.06202702597071922"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -18763,7 +22616,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.05449383798845098"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -18806,7 +22662,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.036818661040459805"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -18849,7 +22708,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.027909262863251204"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -18892,7 +22754,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.01923394042019668"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -18935,7 +22800,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.01881881237043545"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -18978,7 +22846,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.015045892429209099"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -19021,7 +22892,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.011942372345747729"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -19064,7 +22938,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.011497715945227924"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -19107,7 +22984,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.003323040683558923"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -19151,7 +23031,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -19198,12 +23079,111 @@ body.detail-mode .detail-section h3 {
 
       </div>
 
-      
+      <div class="list-recommendation">
+        
         <div class="recommend none">
           <span>AI推奨馬券</span>
           <strong>現時点では推奨なし</strong>
         </div>
         
+      </div>
+
+      
+    <div class="detail-summary">
+
+      <div class="detail-picks">
+        
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ◎
+                </span>
+                本命
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  6
+                </span>
+
+                <strong>
+                  ヘリテージブルーム
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  23.9%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ○
+                </span>
+                対抗
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  4
+                </span>
+
+                <strong>
+                  レーティッシュ
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  15.3%
+                </b>
+              </div>
+            </div>
+            
+            <div class="detail-pick">
+              <div class="detail-pick-label">
+                <span class="detail-pick-mark">
+                  ▲
+                </span>
+                単穴
+              </div>
+
+              <div class="detail-pick-horse">
+                <span class="detail-pick-no">
+                  8
+                </span>
+
+                <strong>
+                  マジッククッキー
+                </strong>
+              </div>
+
+              <div class="detail-pick-prob">
+                <span>勝利確率</span>
+                <b>
+                  15.2%
+                </b>
+              </div>
+            </div>
+            
+      </div>
+
+      <div class="detail-summary-bet">
+        
+        <div class="recommend none">
+          <span>AI推奨馬券</span>
+          <strong>現時点では推奨なし</strong>
+        </div>
+        
+      </div>
+
+    </div>
+    
 
       <div class="top3-title">
         AI評価 上位3頭
@@ -19345,8 +23325,32 @@ body.detail-mode .detail-section h3 {
           </p>
 
           
-    <div class="table-scroll">
-      <table class="horse-table">
+    <div class="horse-table-block">
+
+      <div class="table-toolbar">
+        <span>
+          表示順
+        </span>
+
+        <button
+          type="button"
+          class="sort-button active"
+          data-sort="probability"
+        >
+          勝利確率順
+        </button>
+
+        <button
+          type="button"
+          class="sort-button"
+          data-sort="horse_no"
+        >
+          馬番順
+        </button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="horse-table">
         <thead>
           <tr>
             <th>順位</th>
@@ -19361,7 +23365,10 @@ body.detail-mode .detail-section h3 {
 
         <tbody>
           
-            <tr>
+            <tr
+              data-win="0.23933452906945038"
+              data-horse-no="6"
+            >
               <td class="rank-cell">
                 1
               </td>
@@ -19404,7 +23411,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.15270691399127764"
+              data-horse-no="4"
+            >
               <td class="rank-cell">
                 2
               </td>
@@ -19447,7 +23457,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.15232876339236684"
+              data-horse-no="8"
+            >
               <td class="rank-cell">
                 3
               </td>
@@ -19490,7 +23503,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.11417886315430907"
+              data-horse-no="12"
+            >
               <td class="rank-cell">
                 4
               </td>
@@ -19533,7 +23549,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0731756274882193"
+              data-horse-no="10"
+            >
               <td class="rank-cell">
                 5
               </td>
@@ -19576,7 +23595,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04876138691402627"
+              data-horse-no="3"
+            >
               <td class="rank-cell">
                 6
               </td>
@@ -19619,7 +23641,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04717479750583824"
+              data-horse-no="5"
+            >
               <td class="rank-cell">
                 7
               </td>
@@ -19662,7 +23687,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.04600301952315771"
+              data-horse-no="13"
+            >
               <td class="rank-cell">
                 8
               </td>
@@ -19705,7 +23733,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.03265916485391554"
+              data-horse-no="9"
+            >
               <td class="rank-cell">
                 9
               </td>
@@ -19748,7 +23779,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.021697493040800903"
+              data-horse-no="1"
+            >
               <td class="rank-cell">
                 10
               </td>
@@ -19791,7 +23825,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.018320273121349803"
+              data-horse-no="16"
+            >
               <td class="rank-cell">
                 11
               </td>
@@ -19834,7 +23871,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.016360461594403655"
+              data-horse-no="14"
+            >
               <td class="rank-cell">
                 12
               </td>
@@ -19877,7 +23917,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.014352270409369847"
+              data-horse-no="2"
+            >
               <td class="rank-cell">
                 13
               </td>
@@ -19920,7 +23963,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.010693591208604398"
+              data-horse-no="7"
+            >
               <td class="rank-cell">
                 14
               </td>
@@ -19963,7 +24009,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.007321328970586692"
+              data-horse-no="11"
+            >
               <td class="rank-cell">
                 15
               </td>
@@ -20006,7 +24055,10 @@ body.detail-mode .detail-section h3 {
               </td>
             </tr>
             
-            <tr>
+            <tr
+              data-win="0.0049315157623240685"
+              data-horse-no="15"
+            >
               <td class="rank-cell">
                 16
               </td>
@@ -20050,7 +24102,8 @@ body.detail-mode .detail-section h3 {
             </tr>
             
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     
 
@@ -20168,6 +24221,108 @@ body.detail-mode .detail-section h3 {
     );
 
   });
+
+
+
+
+  // =====================================
+  // 全頭評価テーブル ソート
+  // =====================================
+
+  function sortHorseTable(
+    block,
+    mode
+  ) {
+
+    const tbody =
+      block.querySelector(
+        ".horse-table tbody"
+      );
+
+    if (!tbody) return;
+
+    const rows =
+      Array.from(
+        tbody.querySelectorAll(
+          "tr"
+        )
+      );
+
+    rows.sort(
+      (a, b) => {
+
+        if (mode === "horse_no") {
+
+          return (
+            Number(
+              a.dataset.horseNo
+              || 999
+            )
+            -
+            Number(
+              b.dataset.horseNo
+              || 999
+            )
+          );
+        }
+
+        return (
+          Number(
+            b.dataset.win
+            || 0
+          )
+          -
+          Number(
+            a.dataset.win
+            || 0
+          )
+        );
+      }
+    );
+
+    rows.forEach(
+      row => tbody.appendChild(row)
+    );
+  }
+
+
+  document
+    .querySelectorAll(
+      ".horse-table-block"
+    )
+    .forEach(block => {
+
+      const buttons =
+        block.querySelectorAll(
+          ".sort-button"
+        );
+
+      buttons.forEach(button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            buttons.forEach(
+              b => b.classList.remove(
+                "active"
+              )
+            );
+
+            button.classList.add(
+              "active"
+            );
+
+            sortHorseTable(
+              block,
+              button.dataset.sort
+            );
+          }
+        );
+
+      });
+
+    });
 
 
   // =====================================
