@@ -789,6 +789,10 @@ body.detail-mode .detail-summary {
 }
 
 
+/* 一覧ページでは詳細展開ボタンを表示しない */
+.detail-button {
+  display:none !important;
+}
 .race-name-link {
   color:var(--text);
   text-decoration:none;
@@ -1264,6 +1268,19 @@ body.detail-mode .detail-section h3 {
   }
 }
 
+
+
+/* 一覧では全頭評価・展開予想を表示しない */
+body:not(.detail-mode) .detail-button,
+body:not(.detail-mode) .race-detail {
+  display:none !important;
+}
+
+/* 詳細ページでは全頭評価・展開予想を表示 */
+body.detail-mode .race-detail {
+  display:block;
+}
+
 </style>
 </head>
 
@@ -1287,7 +1304,7 @@ body.detail-mode .detail-section h3 {
     </div>
 
     <div class="updated">
-      最終更新 2026-10-03 03:13
+      最終更新 2026-10-03 03:24
     </div>
   </div>
 
