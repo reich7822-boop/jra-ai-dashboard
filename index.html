@@ -1437,6 +1437,52 @@ body.detail-mode .result-detail-summary {
 
 }
 
+
+
+.header-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.header-title-block {
+  min-width:0;
+}
+
+.performance-link {
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:8px 14px;
+  border:1px solid #1565c0;
+  border-radius:999px;
+  color:#1565c0;
+  background:#fff;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:800;
+}
+
+.performance-link:hover {
+  background:#eef5fd;
+}
+
+@media(max-width:650px) {
+
+  .header-inner {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .performance-link {
+    width:100%;
+  }
+
+}
+
 </style>
 </head>
 
@@ -1444,11 +1490,22 @@ body.detail-mode .result-detail-summary {
 
 <header class="site-header">
   <div class="header-inner">
-    <h1>AI競馬予測</h1>
 
-    <div class="subtitle">
-      JRA 全レースの勝利確率・推奨馬券・展開予想
+    <div class="header-title-block">
+      <h1>AI競馬予測</h1>
+
+      <div class="subtitle">
+        JRA 全レースの勝利確率・推奨馬券・展開予想
+      </div>
     </div>
+
+    <a
+      class="performance-link"
+      href="./performance.html"
+    >
+      AI過去成績を見る →
+    </a>
+
   </div>
 </header>
 
@@ -1460,7 +1517,7 @@ body.detail-mode .result-detail-summary {
     </div>
 
     <div class="updated">
-      最終更新 2026-10-03 03:34
+      最終更新 2026-10-03 03:50
     </div>
   </div>
 
