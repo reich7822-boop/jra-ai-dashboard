@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1"
+>
+
+<title>
+AI過去成績 | JRA AI予測
+</title>
+
+<style>
+
+:root {
+  --text:#20252a;
+  --muted:#68737c;
+  --border:#dde3e7;
+  --blue:#1565c0;
+  --green:#17775b;
+  --green-soft:#edf8f4;
+  --bg:#f5f7f8;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+main {
+  width:min(
+    1050px,
+    calc(100% - 24px)
+  );
+  margin:0 auto;
+  padding:22px 0 45px;
+}
+
+.back {
+  display:inline-block;
+  margin-bottom:18px;
+  color:var(--blue);
+  font-weight:800;
+  text-decoration:none;
+}
+
+h1 {
+  margin:0;
+  font-size:
+    clamp(
+      26px,
+      5vw,
+      38px
+    );
+}
+
+.lead {
+  color:var(--muted);
+  line-height:1.7;
+}
+
+section {
+  margin-top:18px;
+  padding:18px;
+  background:#fff;
+  border:
+    1px solid
+    var(--border);
+  border-radius:14px;
+}
+
+h2 {
+  margin:0 0 7px;
+}
+
+.section-note {
+  margin:0 0 15px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.7;
+}
+
+.metrics {
+  display:grid;
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0,1fr)
+    );
+  gap:10px;
+}
+
+.metric {
+  padding:15px;
+  border:
+    1px solid
+    var(--border);
+  border-radius:12px;
+  background:#fafbfb;
+}
+
+.metric span {
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.metric strong {
+  display:block;
+  margin-top:5px;
+  font-size:27px;
+}
+
+.metric small {
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+}
+
+.calibration-guide {
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  margin:12px 0;
+  font-size:11px;
+}
+
+.calibration-guide span {
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+.dot {
+  width:9px;
+  height:9px;
+  border-radius:50%;
+}
+
+.dot.pred {
+  background:#90a4ae;
+}
+
+.dot.actual {
+  background:var(--green);
+}
+
+.table-scroll {
+  overflow-x:auto;
+}
+
+table {
+  width:100%;
+  min-width:650px;
+  border-collapse:collapse;
+}
+
+th,
+td {
+  padding:10px 8px;
+  border-bottom:
+    1px solid
+    var(--border);
+  text-align:right;
+  font-size:12px;
+}
+
+th:first-child,
+td:first-child {
+  text-align:left;
+}
+
+th {
+  color:var(--muted);
+}
+
+.mini-bar {
+  width:100%;
+  min-width:80px;
+  height:5px;
+  margin-top:4px;
+  border-radius:99px;
+  overflow:hidden;
+  background:#edf0f2;
+}
+
+.mini-bar i {
+  display:block;
+  height:100%;
+}
+
+.mini-bar.pred i {
+  background:#90a4ae;
+}
+
+.mini-bar.actual i {
+  background:var(--green);
+}
+
+.empty-state {
+  padding:20px;
+  border:
+    1px dashed
+    var(--border);
+  border-radius:10px;
+  color:var(--muted);
+  text-align:center;
+  line-height:1.8;
+}
+
+.disclaimer {
+  margin-top:18px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.8;
+}
+
+@media(max-width:650px) {
+
+  .metrics {
+    grid-template-columns:1fr;
+  }
+
+  section {
+    padding:14px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main>
+
+<a
+  href="./"
+  class="back"
+>
+  ← 本日の予想へ
+</a>
+
+<h1>
+  AI過去成績
+</h1>
+
+<p class="lead">
+  予測結果を都合よく抜き出すのではなく、
+  あらかじめ分離したテスト期間と
+  実戦運用後の成績を分けて公開しています。
+</p>
+
+
+<section>
+
+  <h2>
+    過去検証
+  </h2>
+
+  <p class="section-note">
+    テスト期間：
+    2026-01-01
+    〜
+    2026-09-26
+    ／
+    学習時に使用していない期間で評価。
+  </p>
+
+  <div class="metrics">
+
+    <div class="metric">
+
+      <span>
+        検証レース数
+      </span>
+
+      <strong>
+        2,446
+      </strong>
+
+    </div>
+
+    <div class="metric">
+
+      <span>
+        AI1位評価馬の勝率
+      </span>
+
+      <strong>
+        27.2%
+      </strong>
+
+      <small>
+        665
+        /
+        2,446勝
+      </small>
+
+    </div>
+
+    <div class="metric">
+
+      <span>
+        勝ち馬がAI上位3頭
+      </span>
+
+      <strong>
+        58.4%
+      </strong>
+
+      <small>
+        1,429
+        /
+        2,446レース
+      </small>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>
+    AI1位評価馬の
+    予測確率別・実勝率
+  </h2>
+
+  <p class="section-note">
+    この表は全出走馬ではなく、
+    各レースでAIが最も高い勝利確率を
+    与えた1頭だけを対象としています。
+    平均予測勝率と実際の勝率が近いほど、
+    確率の校正が良いことを示します。
+  </p>
+
+  <div class="calibration-guide">
+
+    <span>
+      <i class="dot pred"></i>
+      AI平均予測
+    </span>
+
+    <span>
+      <i class="dot actual"></i>
+      実勝率
+    </span>
+
+  </div>
+
+  <div class="table-scroll">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>予測確率帯</th>
+          <th>頭数</th>
+          <th>勝数</th>
+          <th>平均予測</th>
+          <th>実勝率</th>
+          <th>差</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        
+            <tr>
+
+              <td>
+                <strong>
+                  0〜10%
+                </strong>
+              </td>
+
+              <td>
+                0
+              </td>
+
+              <td>
+                0
+              </td>
+
+              <td>
+                —
+
+                <div class="mini-bar pred">
+                  <i
+                    style="
+                      width:0.0%
+                    "
+                  ></i>
+                </div>
+              </td>
+
+              <td>
+                —
+
+                <div class="mini-bar actual">
+                  <i
+                    style="
+                      width:0.0%
+                    "
+                  ></i>
+                </div>
+              </td>
+
+              <td>
+                —
+              </td>
+
+            </tr>
+            
+            <tr>
+
+              <td>
+                <strong>
+                  10〜20%
+                </strong>
+              </td>
+
+              <td>
+                708
+              </td>
+
+              <td>
+                137
+              </td>
+
+              <td>
+                17.2%
+
+                <div class="mini-bar pred">
+                  <i
+                    style="
+                      width:17.2%
+                    "
+                  ></i>
+                </div>
+              </td>
+
+              <td>
+                19.4%
+
+                <div class="mini-bar actual">
+                  <i
+                    style="
+                      width:19.4%
+                    "
+                  ></i>
+                </div>
+              </td>
+
+              <td>
+                +2.1pt
+              </td>
+
+            </tr>
+            
+            <tr>
+
+              <td>
+                <strong>
+                  20〜30%
+                </strong>
+              </td>
+
+              <td>
+                1205
+              </td>
+
+              <td>
+                341
+              </td>
+
+              <td>
+                24.4%
+
+                <div class="mini-bar pred">
+                  <i
+                    style="
+                      width:24.4%
+                    "
+                  ></i>
+                </div>
+              </td>
+
+              <td>
+                28.3%
+
+                <div class="mini-bar actual">
+                  <i
+                    style="
+                      width:28.3%
+                    "
+                  ></i>
+                </div>
+              </td>
+
+              <td>
+                +3.9pt
+              </td>
+
+            </tr>
+            
+            <tr>
+
+              <td>
+                <strong>
+                  30〜40%
+                </strong>
+              </td>
+
+              <td>
+                429
+              </td>
+
+              <td>
+                140
+              </td>
+
+              <td>
+                33.6%
+
+                <div class="mini-bar pred">
+                  <i
+                    style="
+                      width:33.6%
+                    "
+                  ></i>
+                </div>
+              </td>
+
+              <td>
+                32.6%
+
+                <div class="mini-bar actual">
+                  <i
+                    style="
+                      width:32.6%
+                    "
+                  ></i>
+                </div>
+              </td>
+
+              <td>
+                -1.0pt
+              </td>
+
+            </tr>
+            
+            <tr>
+
+              <td>
+                <strong>
+                  40〜50%
+                </strong>
+              </td>
+
+              <td>
+                89
+              </td>
+
+              <td>
+                38
+              </td>
+
+              <td>
+                43.5%
+
+                <div class="mini-bar pred">
+                  <i
+                    style="
+                      width:43.5%
+                    "
+                  ></i>
+                </div>
+              </td>
+
+              <td>
+                42.7%
+
+                <div class="mini-bar actual">
+                  <i
+                    style="
+                      width:42.7%
+                    "
+                  ></i>
+                </div>
+              </td>
+
+              <td>
+                -0.8pt
+              </td>
+
+            </tr>
+            
+            <tr>
+
+              <td>
+                <strong>
+                  50%以上
+                </strong>
+              </td>
+
+              <td>
+                15
+              </td>
+
+              <td>
+                9
+              </td>
+
+              <td>
+                56.8%
+
+                <div class="mini-bar pred">
+                  <i
+                    style="
+                      width:56.8%
+                    "
+                  ></i>
+                </div>
+              </td>
+
+              <td>
+                60.0%
+
+                <div class="mini-bar actual">
+                  <i
+                    style="
+                      width:60.0%
+                    "
+                  ></i>
+                </div>
+              </td>
+
+              <td>
+                +3.2pt
+              </td>
+
+            </tr>
+            
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>
+    実戦運用成績
+  </h2>
+
+  <p class="section-note">
+    本番運用開始後に実際に保存された
+    予測と確定結果だけを集計します。
+    過去検証とは混ぜません。
+  </p>
+
+  
+        <div class="empty-state">
+          実戦運用データは現在蓄積中です。
+          レース結果が確定すると
+          自動的にここへ追加されます。
+        </div>
+        
+
+</section>
+
+
+<p class="disclaimer">
+  過去の検証結果は将来の成績を
+  保証するものではありません。
+  確率帯ごとのサンプル数が少ない場合、
+  実勝率は大きく変動します。
+  内部EV、Champion / Challenger、
+  開発用評価指標は公開していません。
+</p>
+
+</main>
+
+</body>
+</html>
