@@ -364,6 +364,431 @@ body.detail-mode .detail-summary {
 
 }
 
+
+
+/* ========================================
+   AI 展開隊列図
+   ======================================== */
+
+.formation-overview {
+  margin-top:12px;
+}
+
+.formation-status {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:8px;
+}
+
+.formation-status > div {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-height:46px;
+  padding:8px 13px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:#fff;
+}
+
+.formation-status span {
+  color:var(--muted);
+  font-size:12px;
+}
+
+.formation-status strong {
+  font-size:15px;
+}
+
+.formation-status .pace-code {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:var(--green);
+  color:#fff;
+  font-size:18px;
+}
+
+.formation-note {
+  margin:6px 0 12px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.formation-arrow {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+  margin:10px 0;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.02em;
+}
+
+.formation-arrow span {
+  color:var(--green);
+}
+
+.formation-board {
+  display:grid;
+  grid-template-columns:
+    repeat(5, minmax(150px, 1fr));
+  gap:8px;
+  align-items:start;
+}
+
+.formation-stage {
+  min-width:0;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fafbfb;
+}
+
+.formation-stage-head {
+  min-height:61px;
+  padding:9px 10px;
+  border-bottom:1px solid var(--border);
+  background:#fff;
+}
+
+.formation-stage-head strong {
+  display:block;
+  font-size:15px;
+}
+
+.formation-stage-head span {
+  display:block;
+  margin-top:2px;
+  color:var(--muted);
+  font-size:10px;
+}
+
+.formation-direction {
+  display:grid;
+  grid-template-columns:
+    auto 1fr auto;
+  align-items:center;
+  gap:5px;
+  padding:6px 8px 3px;
+  color:var(--muted);
+  font-size:9px;
+}
+
+.formation-direction span:nth-child(2) {
+  height:1px;
+  background:
+    linear-gradient(
+      to right,
+      var(--green),
+      var(--border)
+    );
+}
+
+.formation-horses {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  padding:6px;
+}
+
+.formation-horse {
+  display:grid;
+  grid-template-columns:
+    18px 26px minmax(0,1fr);
+  grid-template-areas:
+    "order no name"
+    "order no meta";
+  column-gap:5px;
+  align-items:center;
+  min-width:0;
+  padding:5px 6px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#fff;
+}
+
+.formation-order {
+  grid-area:order;
+  color:var(--muted);
+  font-size:9px;
+  text-align:center;
+}
+
+.formation-no {
+  grid-area:no;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:25px;
+  height:25px;
+  border-radius:6px;
+  background:#e9edef;
+  font-size:11px;
+  font-weight:900;
+}
+
+.formation-name {
+  grid-area:name;
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:11px;
+  font-weight:800;
+}
+
+.formation-style,
+.formation-prob {
+  grid-area:meta;
+  color:var(--muted);
+  font-size:9px;
+}
+
+.formation-prob {
+  color:var(--green);
+  font-weight:800;
+}
+
+.formation-stage:last-child {
+  border-color:#b9e3d4;
+  background:var(--green-soft);
+}
+
+.formation-unknown {
+  margin-top:12px;
+  padding:10px 12px;
+  border:1px dashed var(--border);
+  border-radius:10px;
+}
+
+.formation-unknown strong {
+  display:block;
+  margin-bottom:7px;
+  font-size:12px;
+}
+
+.unknown-horse {
+  display:inline-block;
+  margin:2px;
+  padding:4px 7px;
+  border-radius:999px;
+  background:#f1f3f4;
+  font-size:10px;
+}
+
+.formation-unknown p {
+  margin:7px 0 0;
+  color:var(--muted);
+  font-size:10px;
+}
+
+.formation-disclaimer {
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.6;
+}
+
+@media(max-width:760px) {
+
+  .formation-arrow {
+    display:none;
+  }
+
+  .formation-board {
+    grid-template-columns:1fr;
+  }
+
+  .formation-stage {
+    display:grid;
+    grid-template-columns:
+      100px minmax(0,1fr);
+  }
+
+  .formation-stage-head {
+    border-bottom:0;
+    border-right:1px solid var(--border);
+  }
+
+  .formation-direction {
+    display:none;
+  }
+
+  .formation-horses {
+    min-width:0;
+  }
+
+}
+
+
+
+
+/* ========================================
+   詳細ページ レース間ナビ
+   ======================================== */
+
+.detail-mode-bar {
+  margin-bottom:14px;
+}
+
+.detail-nav-actions {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:9px;
+}
+
+.detail-back-link {
+  display:inline-flex;
+  align-items:center;
+  min-height:42px;
+  padding:8px 14px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#fff;
+  color:var(--green);
+  text-decoration:none;
+  font-weight:800;
+}
+
+.detail-prev-next {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin-left:auto;
+}
+
+.race-step-link,
+.race-step-disabled {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:8px 13px;
+  border-radius:9px;
+  font-size:12px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.race-step-link {
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--text);
+  text-decoration:none;
+}
+
+.race-step-link:hover {
+  color:var(--green);
+  border-color:var(--green);
+}
+
+.race-step-disabled {
+  border:1px solid transparent;
+  color:var(--muted);
+  opacity:.45;
+}
+
+.track-race-nav-wrap {
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fff;
+}
+
+.track-race-nav {
+  display:flex;
+  align-items:center;
+  gap:5px;
+  overflow-x:auto;
+  padding:8px;
+  scrollbar-width:thin;
+  -webkit-overflow-scrolling:touch;
+}
+
+.track-race-nav::before {
+  content:attr(data-track-label);
+  flex:0 0 auto;
+  padding:0 8px 0 3px;
+  font-size:13px;
+  font-weight:900;
+  color:var(--text);
+}
+
+.track-race-link {
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:47px;
+  min-height:39px;
+  padding:6px 10px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:#fafbfb;
+  color:var(--text);
+  text-decoration:none;
+  font-size:12px;
+  font-weight:800;
+}
+
+.track-race-link:hover {
+  color:var(--green);
+  border-color:var(--green);
+}
+
+.track-race-link.active {
+  background:var(--green);
+  border-color:var(--green);
+  color:#fff;
+}
+
+@media(max-width:600px) {
+
+  .detail-nav-actions {
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .detail-back-link {
+    justify-content:center;
+  }
+
+  .detail-prev-next {
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px;
+  }
+
+  .race-step-link,
+  .race-step-disabled {
+    width:100%;
+    padding:7px 5px;
+    font-size:11px;
+  }
+
+  .track-race-nav {
+    padding:7px;
+  }
+
+  .track-race-link {
+    min-width:44px;
+  }
+
+}
+
+
 .race-name-link {
   color:var(--text);
   text-decoration:none;
@@ -862,7 +1287,7 @@ body.detail-mode .detail-section h3 {
     </div>
 
     <div class="updated">
-      最終更新 2026-10-03 02:48
+      最終更新 2026-10-03 02:58
     </div>
   </div>
 
@@ -899,9 +1324,34 @@ body.detail-mode .detail-section h3 {
     class="detail-mode-bar"
     hidden
   >
-    <a href="./">
-      ← 全レース一覧に戻る
-    </a>
+
+    <div class="detail-nav-actions">
+
+      <a
+        href="./"
+        class="detail-back-link"
+      >
+        ← 全レース一覧に戻る
+      </a>
+
+      <div
+        id="detail-prev-next"
+        class="detail-prev-next"
+        aria-label="前後のレース"
+      ></div>
+
+    </div>
+
+    <div class="track-race-nav-wrap">
+
+      <div
+        id="track-race-nav"
+        class="track-race-nav"
+        aria-label="同じ競馬場のレース一覧"
+      ></div>
+
+    </div>
+
   </div>
 
   <div class="race-grid">
@@ -910,6 +1360,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="京都"
       data-race-id="202608040101"
+      data-race-no="1"
     >
 
       <div class="race-header">
@@ -1168,10 +1619,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -1935,6 +2394,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="東京"
       data-race-id="202605040101"
+      data-race-no="1"
     >
 
       <div class="race-header">
@@ -2193,10 +2653,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -2960,6 +3428,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="京都"
       data-race-id="202608040102"
+      data-race-no="2"
     >
 
       <div class="race-header">
@@ -3218,10 +3687,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -3755,6 +4232,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="東京"
       data-race-id="202605040102"
+      data-race-no="2"
     >
 
       <div class="race-header">
@@ -4013,10 +4491,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -4596,6 +5082,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="京都"
       data-race-id="202608040103"
+      data-race-no="3"
     >
 
       <div class="race-header">
@@ -4854,10 +5341,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -5667,6 +6162,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="東京"
       data-race-id="202605040103"
+      data-race-no="3"
     >
 
       <div class="race-header">
@@ -5925,10 +6421,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -6830,6 +7334,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="京都"
       data-race-id="202608040104"
+      data-race-no="4"
     >
 
       <div class="race-header">
@@ -7088,10 +7593,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -7809,6 +8322,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="京都"
       data-race-id="202608040105"
+      data-race-no="5"
     >
 
       <div class="race-header">
@@ -8067,10 +8581,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -8880,6 +9402,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="東京"
       data-race-id="202605040105"
+      data-race-no="5"
     >
 
       <div class="race-header">
@@ -9138,10 +9661,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -9721,6 +10252,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="京都"
       data-race-id="202608040106"
+      data-race-no="6"
     >
 
       <div class="race-header">
@@ -9979,10 +10511,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -10838,6 +11378,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="東京"
       data-race-id="202605040106"
+      data-race-no="6"
     >
 
       <div class="race-header">
@@ -11096,10 +11637,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -11909,6 +12458,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="京都"
       data-race-id="202608040107"
+      data-race-no="7"
     >
 
       <div class="race-header">
@@ -12167,10 +12717,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -12980,6 +13538,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="東京"
       data-race-id="202605040107"
+      data-race-no="7"
     >
 
       <div class="race-header">
@@ -13238,10 +13797,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -14143,6 +14710,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="京都"
       data-race-id="202608040108"
+      data-race-no="8"
     >
 
       <div class="race-header">
@@ -14401,10 +14969,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -14984,6 +15560,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="東京"
       data-race-id="202605040108"
+      data-race-no="8"
     >
 
       <div class="race-header">
@@ -15242,10 +15819,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -16055,6 +16640,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="京都"
       data-race-id="202608040109"
+      data-race-no="9"
     >
 
       <div class="race-header">
@@ -16313,10 +16899,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -16758,6 +17352,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="東京"
       data-race-id="202605040109"
+      data-race-no="9"
     >
 
       <div class="race-header">
@@ -17016,10 +17611,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -17645,6 +18248,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="京都"
       data-race-id="202608040110"
+      data-race-no="10"
     >
 
       <div class="race-header">
@@ -17903,10 +18507,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -18716,6 +19328,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="東京"
       data-race-id="202605040110"
+      data-race-no="10"
     >
 
       <div class="race-header">
@@ -18974,10 +19587,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -19879,6 +20500,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="京都"
       data-race-id="202608040111"
+      data-race-no="11"
     >
 
       <div class="race-header">
@@ -20137,10 +20759,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -21042,6 +21672,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="東京"
       data-race-id="202605040111"
+      data-race-no="11"
     >
 
       <div class="race-header">
@@ -21300,10 +21931,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -22067,6 +22706,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="京都"
       data-race-id="202608040112"
+      data-race-no="12"
     >
 
       <div class="race-header">
@@ -22325,10 +22965,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -23046,6 +23694,7 @@ body.detail-mode .detail-section h3 {
       class="race-card"
       data-track="東京"
       data-race-id="202605040112"
+      data-race-no="12"
     >
 
       <div class="race-header">
@@ -23304,10 +23953,18 @@ body.detail-mode .detail-section h3 {
 
           
         <div class="pace-unavailable">
-          現在の予測データには
-          脚質情報がまだ含まれていません。
-          脚質データ連携後、
-          ここに展開予想図を表示します。
+          <strong>
+            隊列予想は現在準備中です
+          </strong>
+          <p>
+            脚質履歴がまだ蓄積されていないため、
+            位置取りを推測せず判定保留としています。
+          </p>
+          <p>
+            レース結果の蓄積後、
+            START → 1角 → 3〜4角 →
+            直線 → GOAL の想定隊列を表示します。
+          </p>
         </div>
         
 
@@ -24325,6 +24982,225 @@ body.detail-mode .detail-section h3 {
     });
 
 
+
+
+  // =====================================
+  // 詳細ページ レース間ナビ
+  // =====================================
+
+  function buildRaceNavigation(
+    selectedCard,
+    allCards
+  ) {
+
+    const track =
+      selectedCard.dataset.track || "";
+
+    const raceNo =
+      Number(
+        selectedCard.dataset.raceNo
+        || 0
+      );
+
+    const sameTrack =
+      Array.from(allCards)
+        .filter(
+          card =>
+            card.dataset.track === track
+        )
+        .sort(
+          (a, b) =>
+            Number(
+              a.dataset.raceNo || 0
+            )
+            -
+            Number(
+              b.dataset.raceNo || 0
+            )
+        );
+
+    const currentIndex =
+      sameTrack.indexOf(
+        selectedCard
+      );
+
+    const prev =
+      currentIndex > 0
+        ? sameTrack[
+            currentIndex - 1
+          ]
+        : null;
+
+    const next =
+      (
+        currentIndex >= 0
+        &&
+        currentIndex
+          < sameTrack.length - 1
+      )
+        ? sameTrack[
+            currentIndex + 1
+          ]
+        : null;
+
+
+    // -----------------------------
+    // 前後レース
+    // -----------------------------
+
+    const prevNext =
+      document.getElementById(
+        "detail-prev-next"
+      );
+
+    if (prevNext) {
+
+      prevNext.innerHTML = "";
+
+      function makeStep(
+        card,
+        direction
+      ) {
+
+        if (!card) {
+
+          const disabled =
+            document.createElement(
+              "span"
+            );
+
+          disabled.className =
+            "race-step-disabled";
+
+          disabled.textContent =
+            direction === "prev"
+              ? "← 前レースなし"
+              : "次レースなし →";
+
+          return disabled;
+        }
+
+        const link =
+          document.createElement(
+            "a"
+          );
+
+        link.className =
+          "race-step-link";
+
+        link.href =
+          "?race="
+          + encodeURIComponent(
+              card.dataset.raceId
+            );
+
+        const no =
+          card.dataset.raceNo;
+
+        link.textContent =
+          direction === "prev"
+            ? `← ${track}${no}R`
+            : `${track}${no}R →`;
+
+        return link;
+      }
+
+      prevNext.appendChild(
+        makeStep(
+          prev,
+          "prev"
+        )
+      );
+
+      prevNext.appendChild(
+        makeStep(
+          next,
+          "next"
+        )
+      );
+    }
+
+
+    // -----------------------------
+    // 1R〜12R 横ナビ
+    // -----------------------------
+
+    const nav =
+      document.getElementById(
+        "track-race-nav"
+      );
+
+    if (!nav) return;
+
+    nav.innerHTML = "";
+
+    nav.dataset.trackLabel =
+      track;
+
+    let currentLink = null;
+
+    sameTrack.forEach(card => {
+
+      const link =
+        document.createElement(
+          "a"
+        );
+
+      const no =
+        card.dataset.raceNo;
+
+      link.className =
+        "track-race-link";
+
+      link.href =
+        "?race="
+        + encodeURIComponent(
+            card.dataset.raceId
+          );
+
+      link.textContent =
+        `${no}R`;
+
+      if (
+        Number(no) === raceNo
+      ) {
+
+        link.classList.add(
+          "active"
+        );
+
+        link.setAttribute(
+          "aria-current",
+          "page"
+        );
+
+        currentLink = link;
+      }
+
+      nav.appendChild(link);
+    });
+
+
+    // スマホでは現在レースを
+    // 横ナビ中央付近へ自動スクロール
+    if (currentLink) {
+
+      requestAnimationFrame(
+        () => {
+
+          nav.scrollLeft =
+            currentLink.offsetLeft
+            -
+            nav.clientWidth / 2
+            +
+            currentLink.offsetWidth / 2;
+
+        }
+      );
+    }
+  }
+
+
   // =====================================
   // レース詳細ページモード
   // =====================================
@@ -24350,6 +25226,12 @@ body.detail-mode .detail-section h3 {
 
       document.body.classList.add(
         "detail-mode"
+      );
+
+
+      buildRaceNavigation(
+        selectedCard,
+        cards
       );
 
       cards.forEach(card => {
